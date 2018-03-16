@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{margin:0;padding:0;box-sizing: border-box;}
+    .wrap{
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-around;
+    }
+    .wrap section{
+      flex: 1;
+    }
+    /* scale row box style */
+    .scale-row-box{
+      width: 72px;
+      font-size: 0;
+    }
+    .scale-row-box .scale-row-item{
+      display: inline-block;
+      margin-left: 6px;
+      width: 6px;
+      height: 50px;
+      background: rgb(9, 173, 238);
+      animation: scale-row-item ease-in-out .65s infinite alternate;
+    }
+    .scale-row-box .scale-row-item:nth-child(1),
+    .scale-row-box .scale-row-item:nth-child(6){
+     
+      animation-delay: 0;
+    }
+    .scale-row-box .scale-row-item:nth-child(2),
+    .scale-row-box .scale-row-item:nth-child(5){
+     
+      animation-delay: .15s;
+    }
+    .scale-row-box .scale-row-item:nth-child(3),
+    .scale-row-box .scale-row-item:nth-child(4){
+      
+      animation-delay: .3s;
+    }
+    @keyframes scale-row-item {
+      0%{transform: scaleY(1)}
+      100%{transform: scaleY(.3)}
+    }
+
+    /* circle row box style */
+    .circle-row-box{
+      width: 72px;
+      height: 72px;
+      padding-top: 23px;
+      font-size: 0;
+    }
+    .circle-row-box .circle-row-item{
+      display: inline-block;
+      margin-left: 6px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgb(9, 173, 238);
+      animation: circle-row-item ease-in-out .8s infinite alternate;
+    }
+    .circle-row-box .circle-row-item:nth-child(1){
+      animation-delay: 0;
+    }
+    .circle-row-box .circle-row-item:nth-child(2){
+      animation-delay: .15s;
+    }
+    .circle-row-box .circle-row-item:nth-child(3){
+      animation-delay: .3s;
+    }
+    .circle-row-box .circle-row-item:nth-child(4){
+      animation-delay: .45s;
+    }
+    .circle-row-box .circle-row-item:nth-child(5){
+      animation-delay: .6s;
+    }
+    .circle-row-box .circle-row-item:nth-child(6){
+      animation-delay: .75s;
+    }
+    @keyframes circle-row-item {
+      0%{transform: translateY(0)}
+     
+      100%{transform: translateY(20px)}
+    }
+
+    /* circle opacity box style */
+    .circle-opacity-box{
+      width: 72px;
+      height: 72px;
+      font-size: 0;
+    }
+    .circle-opacity-box .circle-opacity-item{
+      display: inline-block;
+      width: 27px;
+      height: 27px;
+      margin-left: 6px;
+      margin-top: 6px;
+      background: rgb(9, 173, 238);
+      border-radius: 50%;
+      animation: circle-opacity-item ease-in-out .75s infinite;
+    }
+    .circle-opacity-box .circle-opacity-item:nth-child(1){
+      animation-delay: .15s;
+    }
+    .circle-opacity-box .circle-opacity-item:nth-child(2){
+      animation-delay: .3s;
+    }
+    .circle-opacity-box .circle-opacity-item:nth-child(3){
+      animation-delay: .45s;
+    }
+    .circle-opacity-box .circle-opacity-item:nth-child(4){
+      animation-delay: .6s;
+    }
+    @keyframes circle-opacity-item {
+      0%{opacity: .4;}
+      100%{opacity: 1;}
+    }
+
+    /* circle-rotate-box style */
+    .circle-rotate-box{
+      width: 72px;
+      height: 72px;
+      position: relative;
+    }
+    .circle-rotate-box .circle-rotate-item{
+      position: absolute;
+      top:0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      border:solid 3px rgb(9, 173, 238);
+      border-top-color: transparent;
+      border-right-color: transparent;
+      border-radius: 50%;
+      transform-origin: center;
+      animation: circle-rotate-item linear 2s infinite;
+    }
+    .circle-rotate-box .circle-rotate-item:nth-child(1){
+      width: 66px;
+      height: 66px;
+      animation-duration: 2s;
+    }
+    .circle-rotate-box .circle-rotate-item:nth-child(2){
+      width: 54px;
+      height: 54px;
+      animation-duration: 1.8s;
+    }
+    .circle-rotate-box .circle-rotate-item:nth-child(3){
+      width: 42px;
+      height: 42px;
+      animation-duration: 1s;
+    }
+    .circle-rotate-box .circle-rotate-item:nth-child(4){
+      width: 30px;
+      height: 30px;
+      animation-duration: 1.4s;
+    } 
+    .circle-rotate-box .circle-rotate-item:nth-child(5){
+      width: 18px;
+      height:18px;
+      animation-duration: .8s;
+    }
+    @keyframes circle-rotate-item {
+      0%{transform: rotate(0)}
+      100%{transform: rotate(360deg)}
+    }
+
+    /* circle-translate-box style */
+    .circle-translate-box{
+      width: 72px;
+      height:72px;
+      overflow: hidden;
+      position: relative;
+    }
+    .circle-translate-box .circle-face{
+      width: 30px;
+      height:30px;
+      transform: translateY(21px);
+      border:solid 15px rgb(240, 224, 9);
+      border-right-color: transparent;
+      border-radius: 50%;
+    }
+    .circle-translate-box .circle-translate-item{
+      position: absolute;
+      width:10px;
+      height: 10px;
+      background: rgb(9, 173, 238);
+      border-radius: 50%;
+      transform: translateX(76px);
+      animation: circle-translate-item linear 1.2s infinite;
+    }
+    .circle-translate-box .circle-translate-item:nth-child(1){
+      animation-delay: 0;
+    }
+    .circle-translate-box .circle-translate-item:nth-child(2){
+      animation-delay: .6s;
+    }
+    .circle-translate-box .circle-translate-item:nth-child(3){
+      animation-delay: 1.2s;
+    }
+    @keyframes circle-translate-item {
+      0%{
+        transform: translateX(76px);
+        opacity: 1;
+      }
+      100%{
+        transform: translateX(22px);
+        opacity: .2;
+      }
+    }
+
+    /* circle-scale-box style */
+    .rectangle-scale-box{
+      width: 72px;
+      height:72px;
+      position: relative;
+      overflow: hidden;
+    }
+    .rectangle-scale-box .rectangle-scale-item{
+      position: absolute;
+      top:0;
+      left:0;
+      right: 0;
+      bottom:0;
+      margin: auto;
+      width: 66px;
+      height: 66px;
+      border: solid 2px rgb(9, 173, 238);
+      /* border-radius: 50%; */
+      opacity: 0;
+      animation: rectangle-scale-item ease-in-out 3s infinite alternate;
+    }
+    .rectangle-scale-box .rectangle-scale-item:nth-child(1){
+      animation-delay: 0;
+    }
+    .rectangle-scale-box .rectangle-scale-item:nth-child(2){
+      animation-delay: 1s;
+    }
+    .rectangle-scale-box .rectangle-scale-item:nth-child(3){
+      animation-delay: 2s;
+    }
+    .rectangle-scale-box .rectangle-scale-item:nth-child(4){
+      animation-delay: 4.5s;
+    }
+    @keyframes rectangle-scale-item {
+      0%{
+        opacity: 0;
+        transform: scale(0);
+      }
+      100%{
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* rectangle scale box 9 style */
+    .rectangle-scale-box-9{
+      width: 72px;
+      height: 72px;
+      overflow: hidden;
+    }
+    .rectangle-scale-box-9 .rectangle-scale-item-9{
+      width: 24px;
+      height: 24px;
+      float: left;
+      opacity: 0;
+      animation: rectangle-scale-item-9 ease .55s infinite alternate; 
+    }
+    .rectangle-scale-box-9 .rectangle-scale-item-9:nth-child(1){
+      background:#CD3333;
+      animation-delay: 0;
+    }
+    .rectangle-scale-box-9 .rectangle-scale-item-9:nth-child(2),
+    .rectangle-scale-box-9 .rectangle-scale-item-9:nth-child(4){
+      background: #CD6600;
+      animation-delay: .15s;
+    }
+    .rectangle-scale-box-9 .rectangle-scale-item-9:nth-child(3),
+    .rectangle-scale-box-9 .rectangle-scale-item-9:nth-child(5),
+    .rectangle-scale-box-9 .rectangle-scale-item-9:nth-child(7){
+      background: #EE9A49;
+      animation-delay: .3s;
+    }
+    .rectangle-scale-box-9 .rectangle-scale-item-9:nth-child(6),
+    .rectangle-scale-box-9 .rectangle-scale-item-9:nth-child(8){
+      background: #9BCD9B;
+      animation-delay: .45s;
+    }
+    .rectangle-scale-box-9 .rectangle-scale-item-9:nth-child(9){
+      background: #708090;
+      animation-delay: .6s;
+    }
+    @keyframes rectangle-scale-item-9 {
+      0%{
+        opacity: 0;
+        transform: scale(0);
+      }
+      100%{
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* progress bar box style */
+    .progress-translate-box{
+      position: relative;
+      width: 72px;
+      height: 72px;
+      overflow: hidden;
+    }
+    .progress-translate-box .progress-bar,
+    .progress-translate-box .progress-translate-item{
+      position: absolute;
+      top:0;
+      left:0;
+      right: 0;
+      bottom:0;
+      margin: auto;
+    }
+    .progress-translate-box .progress-bar{
+      width: 44px;
+      height: 32px;
+      border: solid 2px #FF7256;
+      border-left-color: transparent;
+      border-right-color: transparent;
+    }
+    .progress-translate-box .progress-bar::after{
+      position: absolute;
+      top:-2px;
+      left: -15px;
+      content: '';
+      width: 28px;
+      height: 28px;
+      border: solid 2px #FF7256;
+      border-radius: 50%;
+      border-right-color: transparent;
+      border-bottom-color: transparent;
+      transform: rotate(-45deg);
+    }
+    .progress-translate-box .progress-bar::before{
+      position: absolute;
+      top:-2px;
+      right: -15px;
+      content: '';
+      width: 28px;
+      height: 28px;
+      border: solid 2px #FF7256;
+      border-radius: 50%;
+      border-right-color: transparent;
+      border-bottom-color: transparent;
+      transform: rotate(135deg);
+    }
+    .progress-translate-box .progress-translate-item{
+      left: -36px;
+      width: 8px;
+      height: 28px;
+      background: tomato;
+      transform: skewX(-18deg);
+      opacity: 0;
+      animation: progress-translate-item linear 1.8s infinite;
+    }
+    .progress-translate-box .progress-translate-item:nth-child(1){
+      animation-delay: 0;
+    }
+    .progress-translate-box .progress-translate-item:nth-child(2){
+      animation-delay: .6s;
+    }
+    .progress-translate-box .progress-translate-item:nth-child(3){
+      animation-delay: 1.2s;
+    }
+    @keyframes progress-translate-item {
+      0%{
+        transform: skewX(-18deg) translateX(0);
+        opacity: .2;
+      }
+      50%{
+        transform: skewX(-18deg) translateX(18px);
+        opacity: 1;
+      }
+      100%{
+        transform: skewX(-18deg) translateX(36px);
+        opacity: .2;
+      }
+    }
+
+    /* circle-opacity-box style */
+    .radio-opacity-box{
+      position: relative;
+      width: 72px;
+      height: 72px;
+    }
+    .radio-opacity-box .radio-opacity-item{
+      position: absolute;
+      transform: rotate(-45deg);
+      animation: radio-opacity-item linear .6s infinite;
+    }
+    .radio-opacity-box .radio-opacity-item:nth-child(1){
+      left:6px;
+      bottom: 6px;
+      width: 18px;
+      height: 18px;
+      background: #FF4500;
+      border-radius: 50%;
+    }
+    .radio-opacity-box .radio-opacity-item:nth-child(2){
+      left:-4px;
+      bottom:-4px;
+      width: 40px;
+      height: 40px;
+      border: solid 6px transparent;
+      border-right-color: #FF7256;
+      border-radius: 50%;
+      animation-delay: .2s;
+    }
+    .radio-opacity-box .radio-opacity-item:nth-child(3){
+      left:-6px;
+      bottom:-6px;
+      width: 55px;
+      height: 55px;
+      border: solid 6px transparent;
+      border-right-color:#FFB90F;
+      border-radius: 50%;
+      animation-delay: .4s;
+    }
+    @keyframes radio-opacity-item {
+      0%{opacity: 1;}
+      100%{opacity: .4;}
+    }
+
+    /* rect perspective box style  */
+    .pie-scale-box{
+      width: 72px;
+      height: 72px;
+      position: relative;
+    }
+    .pie-scale-box .pie-scale-item{
+      position: absolute;
+      top:0;
+      right:0;
+      bottom:0;
+      left:0;
+      margin: auto;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border:solid 8px;
+      animation: pie-scale-item linear 1s infinite;
+    }
+    .pie-scale-box .pie-scale-item:nth-child(1){
+      border-color:	rgb(61, 183, 240);	
+      animation-delay: 0;	
+    }
+    .pie-scale-box .pie-scale-item:nth-child(2){
+      border-color: #FFAEB9;
+      animation-delay: .5s;
+    }
+    @keyframes pie-scale-item {
+      0%{
+        opacity: 0;
+        transform: scale(0);
+      }
+      50%{
+        opacity: 1;
+        transform: scale(.5);
+      }
+      100%{
+        opacity: 0;
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section>
+      <div class="scale-row-box">
+        <div class="scale-row-item"></div>
+        <div class="scale-row-item"></div>
+        <div class="scale-row-item"></div>
+        <div class="scale-row-item"></div>
+        <div class="scale-row-item"></div>
+        <div class="scale-row-item"></div>
+      </div>
+    </section>
+    <section>
+      <div class="circle-row-box">
+        <div class="circle-row-item"></div>
+        <div class="circle-row-item"></div>
+        <div class="circle-row-item"></div>
+        <div class="circle-row-item"></div>
+        <div class="circle-row-item"></div>
+        <div class="circle-row-item"></div>
+      </div>
+    </section>
+    <section>
+      <div class="circle-opacity-box">
+        <div class="circle-opacity-item"></div>
+        <div class="circle-opacity-item"></div>
+        <div class="circle-opacity-item"></div>
+        <div class="circle-opacity-item"></div>
+      </div>
+    </section>
+    <section>
+      <div class="circle-rotate-box">
+        <div class="circle-rotate-item"></div>
+        <div class="circle-rotate-item"></div>
+        <div class="circle-rotate-item"></div>
+        <div class="circle-rotate-item"></div>
+        <div class="circle-rotate-item"></div>
+      </div>
+    </section>
+    <section>
+      <div class="circle-translate-box">
+        <div class="circle-face"></div>
+        <div class="circle-translate-item"></div>
+        <div class="circle-translate-item"></div>
+        <div class="circle-translate-item"></div>
+      </div>
+    </section>
+    <section>
+      <div class="rectangle-scale-box">
+        <div class="rectangle-scale-item"></div>
+        <div class="rectangle-scale-item"></div>
+        <div class="rectangle-scale-item"></div>
+        <div class="rectangle-scale-item"></div>
+      </div>
+    </section>
+    <section>
+      <div class="rectangle-scale-box-9">
+        <div class="rectangle-scale-item-9"></div>
+        <div class="rectangle-scale-item-9"></div>
+        <div class="rectangle-scale-item-9"></div>
+        <div class="rectangle-scale-item-9"></div>
+        <div class="rectangle-scale-item-9"></div>
+        <div class="rectangle-scale-item-9"></div>
+        <div class="rectangle-scale-item-9"></div>
+        <div class="rectangle-scale-item-9"></div>
+        <div class="rectangle-scale-item-9"></div>
+      </div>
+    </section>
+    <section>
+      <div class="progress-translate-box">
+        <div class="progress-bar">
+        <div class="progress-translate-item"></div>
+        <div class="progress-translate-item"></div>
+        <div class="progress-translate-item"></div>
+      </div>
+      </div>
+    </section>
+    <section>
+      <div class="radio-opacity-box">
+        <div class="radio-opacity-item"></div>
+        <div class="radio-opacity-item"></div>
+        <div class="radio-opacity-item"></div>
+      </div>
+    </section>
+    <section>
+      <div class="pie-scale-box">
+        <div class="pie-scale-item"></div>
+        <div class="pie-scale-item"></div>
+      </div>
+    </section>
+  </div>
+  
+</body>
+</html>
